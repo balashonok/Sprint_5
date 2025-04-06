@@ -17,7 +17,7 @@ class TestGoTo:
         chrome.find_element(*Locators.LOGIN_BUTTON).click()
         chrome.find_element(*Locators.PERSONAL_ACCOUNT).click()
         WebDriverWait(chrome, 3).until(expected_conditions.visibility_of_element_located(Locators.PROFILE))
-        assert chrome.find_element(*Locators.PROFILE)
+        assert chrome.find_element(*Locators.PROFILE).is_displayed()
 
     @pytest.mark.parametrize('button', [Locators.CONSTRUCTOR, Locators.LOGO])
     def test_go_to_constructor_from_personal_account(self, chrome, button):
@@ -28,4 +28,4 @@ class TestGoTo:
         chrome.find_element(*Locators.LOGIN_BUTTON).click()
         chrome.find_element(*Locators.PERSONAL_ACCOUNT).click()
         chrome.find_element(*button).click()
-        assert chrome.find_element(*Locators.MAKE_BURGER_HEADER)
+        assert chrome.find_element(*Locators.MAKE_BURGER_HEADER).is_displayed()

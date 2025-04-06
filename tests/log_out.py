@@ -18,4 +18,4 @@ class TestLogOut:
         WebDriverWait(chrome, 3).until(expected_conditions.element_to_be_clickable(Locators.LOG_OUT))
         chrome.find_element(*Locators.LOG_OUT).click()
         WebDriverWait(chrome, 3).until(expected_conditions.visibility_of_element_located(Locators.LOGIN_BUTTON))
-        assert chrome.find_element(*Locators.LOGIN_BUTTON)
+        assert chrome.find_element(*Locators.LOGIN_BUTTON).is_displayed()

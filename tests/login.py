@@ -13,7 +13,7 @@ class TestLogin:
         chrome.find_element(*Locators.PASSWORD_INPUT).send_keys(USER_PASSWORD)
         chrome.find_element(*Locators.LOGIN_BUTTON).click()
         WebDriverWait(chrome, 3).until(expected_conditions.visibility_of_element_located(Locators.ORDER_BUTTON))
-        assert chrome.find_element(*Locators.ORDER_BUTTON)
+        assert chrome.find_element(*Locators.ORDER_BUTTON).is_displayed()
 
     def test_login_personal_account(self, chrome):
         chrome.find_element(*Locators.PERSONAL_ACCOUNT).click()
@@ -21,7 +21,7 @@ class TestLogin:
         chrome.find_element(*Locators.PASSWORD_INPUT).send_keys(USER_PASSWORD)
         chrome.find_element(*Locators.LOGIN_BUTTON).click()
         WebDriverWait(chrome, 3).until(expected_conditions.visibility_of_element_located(Locators.ORDER_BUTTON))
-        assert chrome.find_element(*Locators.ORDER_BUTTON)
+        assert chrome.find_element(*Locators.ORDER_BUTTON).is_displayed()
 
     def test_login_registration_form_login_link(self, chrome):
         chrome.get(URLs.REGISTER_PAGE)
@@ -31,7 +31,7 @@ class TestLogin:
         chrome.find_element(*Locators.PASSWORD_INPUT).send_keys(USER_PASSWORD)
         chrome.find_element(*Locators.LOGIN_BUTTON).click()
         WebDriverWait(chrome, 3).until(expected_conditions.visibility_of_element_located(Locators.ORDER_BUTTON))
-        assert chrome.find_element(*Locators.ORDER_BUTTON)
+        assert chrome.find_element(*Locators.ORDER_BUTTON).is_displayed()
 
     def test_login_forgot_password_page_login_link(self, chrome):
         chrome.get(URLs.FORGOT_PASSWORD_PAGE)
@@ -40,4 +40,4 @@ class TestLogin:
         chrome.find_element(*Locators.PASSWORD_INPUT).send_keys(USER_PASSWORD)
         chrome.find_element(*Locators.LOGIN_BUTTON).click()
         WebDriverWait(chrome, 3).until(expected_conditions.visibility_of_element_located(Locators.ORDER_BUTTON))
-        assert chrome.find_element(*Locators.ORDER_BUTTON)
+        assert chrome.find_element(*Locators.ORDER_BUTTON).is_displayed()

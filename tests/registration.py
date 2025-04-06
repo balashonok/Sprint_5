@@ -15,7 +15,7 @@ class TestRegistration:
         chrome.find_element(*Locators.PASSWORD_INPUT).send_keys('012345')
         chrome.find_element(*Locators.REGISTER_BUTTON).click()
         WebDriverWait(chrome,3).until(expected_conditions.invisibility_of_element(Locators.REGISTER_BUTTON))
-        assert chrome.find_element(*Locators.LOGIN_BUTTON)
+        assert chrome.find_element(*Locators.LOGIN_BUTTON).is_displayed()
 
     @pytest.mark.parametrize('password', ['0', '12', '12345'])
     def test_registration_short_password_error(self, chrome, password):
@@ -25,4 +25,4 @@ class TestRegistration:
         chrome.find_element(*Locators.EMAIL_INPUT).send_keys(NEW_EMAIL)
         chrome.find_element(*Locators.PASSWORD_INPUT).send_keys(password)
         chrome.find_element(*Locators.REGISTER_BUTTON).click()
-        assert chrome.find_element(*Locators.ERROR_INCORRECT_PASSWORD)
+        assert chrome.find_element(*Locators.ERROR_INCORRECT_PASSWORD).is_displayed()
